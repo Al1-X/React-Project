@@ -1,0 +1,6 @@
+:root {
+    background-image: url('./Resources/main_bkg.jpg');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}

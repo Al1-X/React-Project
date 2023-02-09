@@ -1,10 +1,16 @@
-import Login from './Components/Login'
+// import Login from './Components/Login';
+// import Register from './Components/Register';
+import MainScreen from './Components/MainScreen';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {    // functional component (there are also class components)
   return (
-    <Login />
+    // <Login />
+    // <Register />
+    <MainScreen />
   );
 }
 
