@@ -16,10 +16,10 @@ const Layout: React.FC = () => {
     return (
         <>
             <div style={divStyle}>
-                <Link to={'/login'}>Login</Link>
+                <Link to={'/'}>Login</Link>
                 <Link to={'/register'}>Register</Link>
-                <Link to={'/sec'}>Search</Link>
-                <Link to={'/'}>Home</Link>
+                <Link to={'/search'}>Search</Link>
+                <Link to={'/home'}>Home</Link>
             </div>
             <Outlet />
         </>

@@ -21,8 +21,8 @@ const divStyle = {
 const Home: React.FC = () => {
     // const restaurants = useCardData()
     const { editCard } = useCardActions()
-
     const [restaurants, setRestaurants] = useState<ListItem[]>([]);
+
 
     useEffect(() => {
         fetch('https://localhost:44361/api/Restaurant')

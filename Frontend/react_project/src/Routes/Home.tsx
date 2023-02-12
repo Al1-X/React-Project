@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainScreen from '../Components/MainScreen';
 import CardItem from '../Components/CardItem';
 import { useCardActions, useCardData } from '../Context';
+import '../Context/auth.context'
 
 const divStyle = {
     display: "flex",

@@ -1,7 +1,18 @@
+import { useState } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap'
+import { useLogin } from '../Context/auth.context';
 
 
 const Login = () => {
+    const [password, setPassword] = useState('');
+    const { login } = useLogin();
+
+    const onButtonPress = () => {
+        if (password === "adminpass") {
+            login();
+        }
+    }
+
     return (
         <>
             <div style={{
@@ -13,7 +24,7 @@ const Login = () => {
                 margin: "-100px 0 0 -100px"
             }}>
 
-                <h1 style={{textAlign: "center"}}>Login Form</h1>
+                <h1 style={{ textAlign: "center" }}>Login Form</h1>
 
                 <Form.Group>
                     <FloatingLabel
@@ -28,17 +39,23 @@ const Login = () => {
 
                 <Form.Group>
                     <FloatingLabel controlId="floatingPassword" label="Password">
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password" onChange={
+                            (event) => {
+                                setPassword(event.target.value);
+                            }
+                        } />
                     </FloatingLabel>
                 </Form.Group>
 
                 <Form.Group>
-                    <Button 
-                    type='submit'
-                    style={{
-                        width:"100%",
-                        marginTop: "10px"
-                    }}>Login</Button>
+                    <Button
+                        type='submit'
+                        style={{
+                            width: "100%",
+                            marginTop: "10px"
+                        }}
+                        onClick={onButtonPress}
+                        >Login</Button>
                 </Form.Group>
             </div>
         </>

@@ -10,6 +10,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { ProtectedRoute } from './Components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -18,20 +19,26 @@ const router = createBrowserRouter([
     errorElement: <h1>Page not found, good luck next time! :(</h1>,
     children: [
       {
-        element: <Home />,
-        path: ''
-      },
-      {
         element: <Login />,
-        path: '/login'
+        path: '/'
       },
       {
         element: <Register />,
         path: '/register'
       },
       {
-        element: <Home2 />,
-        path: '/sec'
+        element:
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>,
+        path: '/home'
+      },
+      {
+        element:
+          <ProtectedRoute>
+            <Home2 />
+          </ProtectedRoute>,
+        path: '/search'
       }
     ]
   },
