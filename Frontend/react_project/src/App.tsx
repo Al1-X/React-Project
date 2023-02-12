@@ -1,4 +1,5 @@
 import Home from './Routes/Home';
+import Home2 from './Routes/Home2';
 import Layout from './Routes/Layout';
 import Login from './Components/Login';
 import Register from './Components/Register';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         element: <Register />,
         path: '/register'
+      },
+      {
+        element: <Home2 />,
+        path: '/sec'
       }
     ]
   },

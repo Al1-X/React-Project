@@ -25,7 +25,7 @@ const MainScreen: React.FC = () => {
             left: "50%",
             flexDirection: "column" as "column",
             margin: "-100px 0 0 -100px",
-            maxWidth: "200px",
+            maxWidth: "215px",
         }
     }, [])
 
@@ -39,7 +39,7 @@ const MainScreen: React.FC = () => {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Restaurant name" aria-label="ListInput"
+                        placeholder="What do you want to add?" aria-label="ListInput"
                         value={text}
                         onChange={handleChange}
                     />
@@ -51,7 +51,7 @@ const MainScreen: React.FC = () => {
                     style={{
                         marginTop: "10px"
                     }}
-                >Show</Button>
+                >Add to list</Button>
             </div>
         </>
     )

@@ -7,7 +7,7 @@ const Register = () => {
             <div style={{
                 display: "flex",
                 position: "absolute",
-                top: "50%",
+                top: "40%",
                 left: "48.5%",
                 flexDirection: "column",
                 margin: "-100px 0 0 -100px"

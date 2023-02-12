@@ -5,7 +5,7 @@ const divStyle = {
     alignItems: "center",
     position: "fixed" as "fixed",
     top: "90%",
-    gap: "10px",
+    gap: "20px",
     left: "50%",
     transform: "translate(-50%, 0)",
     backgroundColor: "rgba(255, 255, 255, 0.4)",
@@ -18,6 +18,7 @@ const Layout: React.FC = () => {
             <div style={divStyle}>
                 <Link to={'/login'}>Login</Link>
                 <Link to={'/register'}>Register</Link>
+                <Link to={'/sec'}>Search</Link>
                 <Link to={'/'}>Home</Link>
             </div>
             <Outlet />
