@@ -1,22 +1,21 @@
 import { useState, useCallback, useMemo } from "react";
 import { Button, InputGroup } from "react-bootstrap";
+import { useCardActions } from "../Context";
 
-export interface mainScreenProps {
-    onCreate: (txt: string) => void
-}
-
-const MainScreen: React.FC<mainScreenProps> = ({ onCreate }) => {
+const MainScreen: React.FC = () => {
     const [text, setText] = useState('');
     // const [text, setText] = useState<ListItem[]>([]);
+
+    const { addCard } = useCardActions()
 
     const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setText(e.target.value);
     }, [])
 
     const handleCreate = useCallback(() => {
-        onCreate(text);
+        addCard(text);
         setText('');
-    }, [text, onCreate])
+    }, [text, addCard])
 
     const divStyle = useMemo(() => {
         return {

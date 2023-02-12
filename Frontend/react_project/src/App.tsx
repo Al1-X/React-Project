@@ -1,13 +1,12 @@
 // import Login from './Components/Login';
 // import Register from './Components/Register';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import MainScreen from './Components/MainScreen';
-import { ListItem, ListItemStatus } from './types';
+import CardItem from './Components/CardItem';
+import { useCardActions, useCardData } from './Context';
 
 import './App.css';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useCallback, useState } from 'react';
-import CardItem from './Components/CardItem';
 
 const divStyle = {
   display: "flex",
@@ -22,40 +21,24 @@ const divStyle = {
 }
 
 function App() {    // functional component (there are also class components)
-  const [items, setItems] = useState<ListItem[]>([]);
+  // const [items, setItems] = useState<ListItem[]>([]);
 
-  const handleOnCreate = useCallback((text: string) => {
-    setItems([
-      ...items,
-      { status: ListItemStatus.notVisited, text }
-    ])
-  }, [items])
-
-  // console.log(items);
+  const items = useCardData()
+  const { editCard } = useCardActions()
+  // console.log('###', state)
 
   return (
     // <Login />
     // <Register />
     <>
-      <MainScreen onCreate={handleOnCreate} />
+      <MainScreen />
       <div
         style={divStyle}
       >
         {
           items.map((item, index) => <CardItem key={index} item={item} onAction={
             () => {
-              let newStatus = ListItemStatus.notVisited
-
-              if (item.status === ListItemStatus.visited) {
-                newStatus = ListItemStatus.notVisited
-              }
-              if (item.status === ListItemStatus.notVisited) {
-                newStatus = ListItemStatus.visited
-              }
-              
-              const newItems = [...items];
-              newItems[index].status = newStatus;
-              setItems(newItems);
+              editCard(index, item.status)
             }
           } />)
         }
