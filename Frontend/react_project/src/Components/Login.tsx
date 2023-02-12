@@ -10,7 +10,7 @@ const Login = () => {
                 top: "50%",
                 left: "50%",
                 flexDirection: "column",
-                margin: "-100px 0 0 -150px"
+                margin: "-100px 0 0 -100px"
             }}>
 
                 <h1 style={{textAlign: "center"}}>Login Form</h1>

@@ -8,9 +8,9 @@ const Register = () => {
                 display: "flex",
                 position: "absolute",
                 top: "50%",
-                left: "50%",
+                left: "48.5%",
                 flexDirection: "column",
-                margin: "-100px 0 0 -150px"
+                margin: "-100px 0 0 -100px"
             }}>
 
                 <h1 style={{textAlign: "center"}}>Register Form</h1>

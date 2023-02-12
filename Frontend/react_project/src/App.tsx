@@ -1,49 +1,41 @@
-// import Login from './Components/Login';
-// import Register from './Components/Register';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import MainScreen from './Components/MainScreen';
-import CardItem from './Components/CardItem';
-import { useCardActions, useCardData } from './Context';
+import Home from './Routes/Home';
+import Layout from './Routes/Layout';
+import Login from './Components/Login';
+import Register from './Components/Register';
 
 import './App.css';
 
-const divStyle = {
-  display: "flex",
-  alignItems: "center",
-  flexDirection: "column" as "column",
-  position: "fixed" as "fixed",
-  top: "20%",
-  margin: "auto",
-  gap: "5px",
-  left: "50%",
-  transform: "translate(-50%, 0)",
-}
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <h1>Page not found, good luck next time! :(</h1>,
+    children: [
+      {
+        element: <Home />,
+        path: ''
+      },
+      {
+        element: <Login />,
+        path: '/login'
+      },
+      {
+        element: <Register />,
+        path: '/register'
+      }
+    ]
+  },
+]);
 
 function App() {    // functional component (there are also class components)
-  // const [items, setItems] = useState<ListItem[]>([]);
-
-  const items = useCardData()
-  const { editCard } = useCardActions()
-  // console.log('###', state)
 
   return (
-    // <Login />
-    // <Register />
-    <>
-      <MainScreen />
-      <div
-        style={divStyle}
-      >
-        {
-          items.map((item, index) => <CardItem key={index} item={item} onAction={
-            () => {
-              editCard(index, item.status)
-            }
-          } />)
-        }
-      </div>
-    </>
+    <RouterProvider router={router} />
   );
 }
 
